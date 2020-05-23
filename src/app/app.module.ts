@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 // Routing Module
 import { AppRoutingModule } from './app-routing.module';
 
+// Module
+
 // Component
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -18,12 +20,13 @@ import { LayoutComponent } from './layout/layout.component';
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    LayoutComponent
+    LayoutComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

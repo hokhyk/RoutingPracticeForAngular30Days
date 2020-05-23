@@ -18,9 +18,18 @@
   <li>
     <a
       routerLink="/login"
-      routerLinkActive="active"
+      [routerLinkActive]="['active']"
     >
       Logout
+    </a>
+  </li>
+  <li>
+    <a
+      routerLink="/feature"
+      [routerLinkActive]="'active'"
+      [routerLinkActiveOptions]="{exact: true}"
+    >
+      Feature
     </a>
   </li>
 </ul>

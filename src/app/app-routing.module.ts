@@ -11,6 +11,11 @@ import { LayoutComponent } from './layout/layout.component';
 import { LayoutGuard } from './layout/layout.guard';
 import { EnsureLoginGuard } from './login/ensure-login.guard';
 
+// Product
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { ProductDetailResolverService } from './product/product-detail-resolver.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -29,11 +34,30 @@ const routes: Routes = [
       {
         path: 'about',
         component: AboutComponent
+      },
+      {
+        path: 'feature',
+        // canActivate: [LayoutGuard],
+        loadChildren: './feature/feature.module#FeatureModule'
+      },
+    ]
+  },
+  {
+    path: 'products',
+    component: ProductListComponent,
+    children: [
+      {
+        path: ':id',
+        component: ProductDetailComponent,
+        resolve: {
+          product: ProductDetailResolverService
+        }
       }
     ]
   },
   {
     path: 'feature',
+    // canActivate: [LayoutGuard],
     loadChildren: './feature/feature.module#FeatureModule'
   },
   {
@@ -45,13 +69,14 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    useHash: true,
-    preloadingStrategy: PreloadAllModules
+    // useHash: true,
+    // preloadingStrategy: PreloadAllModules,
+    enableTracing: true
   })],
   exports: [RouterModule]
 })

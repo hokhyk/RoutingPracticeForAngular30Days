@@ -18,6 +18,9 @@ export class LayoutGuard implements CanActivate {
       alert('你不是Leo，不能進去！');
     }
 
+    console.log(next);
+    console.log(state);
+
     return canActivate;
 
   }

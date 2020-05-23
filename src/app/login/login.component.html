@@ -1,3 +1,15 @@
 <input type="text" [(ngModel)]="name">
 
 <button (click)="login()">登入</button>
+
+<!-- 使用 querystring URL notation 表示法 -->
+<div>
+  <a [routerLink]="['products']" [queryParams]="{ id: 101 }">Prodcuts</a>
+</div>
+
+<!-- 使用 matrix URL notation 表示法 -->
+<!-- 網址格式：http://localhost:4200/products;id=101 -->
+<div>
+  <a [routerLink]="['products', { id: 101 }]">Products</a>
+</div>
+
